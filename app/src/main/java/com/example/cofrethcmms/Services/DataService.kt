@@ -4,6 +4,9 @@ object DataService {
     val categories = listOf(
         WorkOrder("Chiller","chiller"),
         WorkOrder("ahu","ahu"),
+        WorkOrder("plumbing","plumbing"),
+        WorkOrder("Chiller","chiller"),
+        WorkOrder("ahu","ahu"),
         WorkOrder("plumbing","plumbing")
     )
 }

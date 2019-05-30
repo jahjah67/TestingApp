@@ -10,20 +10,21 @@ import android.widget.TextView
 import com.example.cofrethcmms.Model.WorkOrder
 import com.example.cofrethcmms.Open
 import com.example.cofrethcmms.R
+import com.example.cofrethcmms.Services.DataService.categories
 
-class RecycleViewAdapter(val context: Context, val WorkOrder: List<WorkOrder>) : RecyclerView.Adapter<RecycleViewAdapter.Holder>(){
+class RecycleViewAdapter(val context: Context, val workOrder: List<WorkOrder>) : RecyclerView.Adapter<RecycleViewAdapter.Holder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Holder {
-        val v = LayoutInflater.from(context).inflate(R.layout.workorder_list_item, parent,false)
+        val v = LayoutInflater.from(parent.context).inflate(R.layout.workorder_list_item, parent,false)
         return Holder(v)
     }
 
     override fun getItemCount(): Int {
-        return WorkOrder.count()
+        return workOrder.count()
     }
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
-        holder?.bindCategory(WorkOrder[position], context)
+        holder?.bindCategory(categories[position], context)
     }
 
     inner class Holder(itemView: View?) : RecyclerView.ViewHolder(itemView!!){
@@ -36,8 +37,5 @@ class RecycleViewAdapter(val context: Context, val WorkOrder: List<WorkOrder>) :
             workOrderTitle?.text = WorkOrder.title
         }
     }
-
-
-
 }
 
